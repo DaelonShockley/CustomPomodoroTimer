@@ -83,6 +83,7 @@ body {
 }
 
 .progress-container {
+    position: relative;
     width: 60%; /* Full width of the container */
     height: 100px; /* Height of the progress bar */
     background-color: transparent; /* Light gray background */
@@ -101,6 +102,18 @@ body {
     border-radius: 10px 0 0 10px; /* Round the left edge */
     border-color: black;
     border-width: 5px;
+}
+
+.progress-text{
+    position: absolute; /* Position text in relation to the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    font-size: 1.5rem; /* Adjust font size */
+    color: white; /* Text color */
+    font-weight: bold; /* Make the text bold */
+    z-index: 1; /* Ensure text is above the progress bar */
+    pointer-events: none; /* Prevent the text from interfering with user interactions */
 }
 
 .start{
