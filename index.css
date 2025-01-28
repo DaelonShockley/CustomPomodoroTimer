@@ -1,0 +1,137 @@
+body {
+    background: linear-gradient(45deg, #042630, #4c7273, #698f88, #4c7273, #042630);
+    /* Adjust the color codes and direction as needed */
+    height: 100vh; /* Ensure it covers the full viewport height */
+    margin: 0; /* Remove default margin to prevent gaps */
+    color: white;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.header h1{
+    margin-bottom: 0px;
+}
+
+.settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.settings-inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%;
+}
+
+.input p{
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.input input{
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 45px;
+    background-color: transparent;
+    border-color: black;
+}
+
+.input label{
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5px;
+}
+
+.music{
+    display: flex;
+    flex-direction: row;
+}
+
+.music p{
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.music select{
+    background-color: transparent;
+    border-color: black;
+}
+
+.progress-container {
+    width: 60%; /* Full width of the container */
+    height: 100px; /* Height of the progress bar */
+    background-color: transparent; /* Light gray background */
+    border: 4px solid black;
+    border-radius: 15px; /* Rounded edges */
+    overflow: hidden; /* Ensure the bar stays inside the container */
+    margin: 20px auto; /* Center it horizontally */
+    margin-top: 100px;
+}
+
+.progress-bar {
+    height: 100%; /* Match the container's height */
+    width: 0%; /* Initial width is 0 (empty bar) */
+    background-color: #76c7c0; /* Teal bar color */
+    transition: width 0.1s linear; /* Smooth animation */
+    border-radius: 10px 0 0 10px; /* Round the left edge */
+    border-color: black;
+    border-width: 5px;
+}
+
+.start{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.start-button {
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text */
+    border: 2px solid white; /* White border */
+    padding: 10px 20px; /* Padding for a nice shape */
+    font-size: 1.5rem; /* Text size */
+    font-family: Arial, sans-serif; /* Font choice */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    width: 100px;
+}
+
+.start-button:hover {
+    background-color: white; /* White background on hover */
+    color: black; /* Black text on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.start-button:active {
+    transform: scale(1); /* Reset scale when clicked */
+    opacity: 0.8; /* Add a pressed effect */
+}
