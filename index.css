@@ -41,11 +41,12 @@ body {
 }
 
 .input p{
-    width: 80px;
+    width: 90px;
     text-align: right;
     margin-right: 20px;
     margin-top: auto;
     margin-bottom: auto;
+    font-size: large;
 }
 
 .input input{
@@ -62,6 +63,7 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 5px;
+    font-size: large;
 }
 
 .music{
@@ -70,11 +72,12 @@ body {
 }
 
 .music p{
-    width: 80px;
+    width: 90px;
     text-align: right;
     margin-right: 20px;
     margin-top: auto;
     margin-bottom: auto;
+    font-size: large;
 }
 
 .music select{
@@ -91,7 +94,7 @@ body {
     border-radius: 15px; /* Rounded edges */
     overflow: hidden; /* Ensure the bar stays inside the container */
     margin: 20px auto; /* Center it horizontally */
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .progress-bar {
@@ -121,12 +124,14 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
+    margin-top: 70px;
     align-items: center;
 }
 
 .start-button {
     background-color: transparent; /* Transparent background */
+    display: flex;
+    flex-direction: column;
     color: white; /* White text */
     border: 2px solid white; /* White border */
     padding: 10px 20px; /* Padding for a nice shape */
@@ -136,6 +141,7 @@ body {
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: all 0.3s ease; /* Smooth transition for hover effects */
     width: 100px;
+    align-items: center;
 }
 
 .start-button:hover {

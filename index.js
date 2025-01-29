@@ -1,3 +1,6 @@
+let timerInProgress = false; // Track whether a timer is running
+let cancelTimer = false;
+
 function startTimer(duration, mode) {
     return new Promise((resolve) => {
         const progressBar = document.querySelector('.progress-bar');
@@ -21,6 +24,14 @@ function startTimer(duration, mode) {
             const elapsedTime = currentTime - startTime;
             const progress = Math.min((elapsedTime / (duration * 1000)) * totalWidth, totalWidth);
 
+            if (cancelTimer) {
+                clearInterval(interval); // Stop the timer if canceled
+                resolve();
+                progressText.textContent = "Cancelled Timer"
+                return;
+
+            }
+
             progressBar.style.width = `${progress}%`;
             updateText();
 
@@ -42,21 +53,38 @@ function startTimer(duration, mode) {
 //startTimer(60);
 
 async function start() {
+    const startButton = document.querySelector('.start-button');
+
     const study_time = document.getElementById("study-time").value;
     const break_time = document.getElementById("break-time").value;
     const cycles = document.getElementById("cycles").value;
     const progressBar = document.querySelector('.progress-bar');
 
+    if (timerInProgress) {
+        cancelTimer = true; 
+        return; 
+    }
+
+    timerInProgress = true; 
+    cancelTimer = false;
+    startButton.textContent = "Cancel";
+
     for (let i = 0; i < cycles; i++) {
         console.log(`Cycle ${i + 1}: Study time`);
-        await startTimer(study_time * 60, "Studying..."); // Pass "Studying..." text
+        await startTimer(study_time * 60, "Studying..."); 
         progressBar.style.width = '0%';
 
         console.log(`Cycle ${i + 1}: Break time`);
-        await startTimer(break_time * 60, "Break..."); // Pass "Break..." text
+        await startTimer(break_time * 60, "Break..."); 
         progressBar.style.width = '0%';
     }
 
     console.log("All cycles complete!");
-    document.querySelector('.progress-text').textContent = "All cycles complete!";
+    if(!cancelTimer){
+        document.querySelector('.progress-text').textContent = "Session Complete!";
+    }
+
+    timerInProgress = false; // Reset the timer state
+    cancelTimer = false; // Reset cancel state
+    startButton.textContent = "Start";
 }
