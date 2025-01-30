@@ -1,5 +1,13 @@
 let timerInProgress = false; // Track whether a timer is running
 let cancelTimer = false;
+const musicElement = document.getElementById("background-music");
+
+document.getElementById("volume-slider").addEventListener("input", function () {
+    const audio = document.getElementById("background-music");
+    if (audio) {
+        audio.volume = this.value;
+    }
+});
 
 function startTimer(duration, mode) {
     return new Promise((resolve) => {
@@ -47,7 +55,37 @@ function startTimer(duration, mode) {
     });
 }
 
+function playMusic() {
+    const audio = document.getElementById("background-music");
+    const volumeSlider = document.getElementById("volume-slider");
+    if (!audio) {
+        console.error("Audio element not found!");
+        return;
+    }
 
+    const musicSelection = document.getElementById("music").value;
+    let musicSrc = "";
+
+    if (musicSelection === "Lofi") {
+        musicSrc = "Lofi.mp3";
+    } else if (musicSelection === "Synthwave") {
+        musicSrc = "synthwave.mp3";
+    } else if (musicSelection === "Rain") {
+        musicSrc = "rain.mp3";
+    }
+
+    if (musicSrc) {
+        audio.src = musicSrc;
+        audio.volume = volumeSlider.value; // Set initial volume
+        audio.play();
+    }
+}
+
+
+function stopMusic() {
+    musicElement.pause();
+    musicElement.currentTime = 0;  // Reset to start
+}
 
 // Example usage: Start a 25-minute timer
 //startTimer(60);
@@ -69,6 +107,8 @@ async function start() {
     cancelTimer = false;
     startButton.textContent = "Cancel";
 
+    playMusic();
+
     for (let i = 0; i < cycles; i++) {
         console.log(`Cycle ${i + 1}: Study time`);
         await startTimer(study_time * 60, "Studying..."); 
@@ -83,6 +123,8 @@ async function start() {
     if(!cancelTimer){
         document.querySelector('.progress-text').textContent = "Session Complete!";
     }
+
+    stopMusic();
 
     timerInProgress = false; // Reset the timer state
     cancelTimer = false; // Reset cancel state
