@@ -81,7 +81,6 @@ function playMusic() {
     }
 }
 
-
 function stopMusic() {
     musicElement.pause();
     musicElement.currentTime = 0;  // Reset to start
