@@ -86,9 +86,6 @@ function stopMusic() {
     musicElement.currentTime = 0;  // Reset to start
 }
 
-// Example usage: Start a 25-minute timer
-//startTimer(60);
-
 async function start() {
     const startButton = document.querySelector('.start-button');
 
